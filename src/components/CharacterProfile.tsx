@@ -65,16 +65,28 @@ export function CharacterProfile() {
           <div className="lg:col-span-7 flex flex-col gap-6 order-1 lg:order-2">
             <div className="relative aspect-[4/5] md:aspect-video w-full bg-bg-soft overflow-hidden">
               <AnimatePresence mode="wait">
-                <motion.img
+                <motion.div
                   key={activeDialog}
                   initial={{ opacity: 0, scale: 1.02 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
-                  src={getImageUrl(dialogues[activeDialog].emotion)}
-                  alt="하진의 표정"
-                  className="absolute inset-0 w-full h-full object-cover object-top"
-                />
+                  className="absolute inset-0 w-full h-full"
+                >
+                  {/* 블러 처리된 배경: 비율이 달라서 생기는 빈 공간을 자연스럽게 채움 */}
+                  <img
+                    src={getImageUrl(dialogues[activeDialog].emotion)}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover blur-2xl opacity-40 scale-110"
+                  />
+                  {/* 원본 이미지: object-contain으로 잘리지 않게 출력 */}
+                  <img
+                    src={getImageUrl(dialogues[activeDialog].emotion)}
+                    alt="하진의 표정"
+                    className="absolute inset-0 w-full h-full object-contain"
+                  />
+                </motion.div>
               </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-bg-deep via-transparent to-transparent opacity-80" />
               
