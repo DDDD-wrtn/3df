@@ -1,0 +1,6 @@
+{
+  "name": "3일간의 추락",
+  "description": "좀비에게 물린 사실을 숨긴 하진. 완전 변이까지 남은 시간은 단 3일.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
